@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <pattern>%date{ISO8601} %-5level %logger{36} %X{sourceThread} - %msg%n</pattern>
+        </encoder>
+        <encoder>
+            <pattern>%date{YYYY/MM/dd HH:mm:ss.SSS} %-5level[%.15thread] %logger{36} %line --- %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="ALL">
+        <appender-ref ref="FILE_INFO"/>
+        <appender-ref ref="FILE_ERR"/>
+        <appender-ref ref="FILE_DEBUG"/>
+        <appender-ref ref="FILE_ALL"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <logger name="ch.qos.logback" level="ERROR"/>
+    <logger name="scalikejdbc" level="ERROR"/>
+    <logger name="akka" level="INFO"/>
+    <logger name="akka.remote" level="INFO"/>
+    <logger name="akka.persistence.jdbc" level="ERROR"/>
+    <logger name="co.s4n.work.distributor" level="ERROR"/>
+</configuration>
